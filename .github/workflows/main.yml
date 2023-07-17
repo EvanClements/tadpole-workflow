@@ -1,11 +1,11 @@
 on: push
+permissions: read-all|write-all
 jobs:
   build:
     strategy:
       matrix:
-        release: [windows, macos, linux]
-        os: [windows-latest, macos-latest, ubuntu-latest]
-    runs-on: ${{ matrix.os }}
+        release: [windows, macos, ubuntu]
+    runs-on: ${{ matrix.release }}-latest
     steps:
       - name: Create ${{ matrix.release }} Executable
         uses: sayyid5416/pyinstaller@v1
