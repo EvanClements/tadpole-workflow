@@ -15,15 +15,29 @@ jobs:
           requirements: 'requirements.txt'
           upload_exe_with_name: 'tadpole-${{ matrix.release }}'
           options: --onefile, -F, --icon frog.ico, --clean, --noconsole, --version-file versioninfo,
-      
-      - uses: actions/download-artifact@v2.1.1
-        id: dl
-        with:
-          path: artifacts/
-        
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          draft: true
-          files: |
-            ${{steps.download.outputs.download-path}}
+  
+  release:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/download-artifact@v2.1.1
+          id: dl-ubuntu
+          with:
+              name: tadpole-ubuntu
+              path: output/linux
+        - uses: actions/download-artifact@v2.1.1
+          id: dl-windows
+          with:
+              name: tadpole-windows
+              path: output/windows
+        - uses: actions/download-artifact@v2.1.1
+          id: dl-macos
+          with:
+              name: tadpole-macos
+              path: output/macos
+        - uses: softprops/action-gh-release@v1
+          with:
+            draft: true
+            files: |
+               ${{steps.dl-ubuntu.outputs.download-path}}
+               ${{steps.dl-windows.outputs.download-path}}
+               ${{steps.dl-macos.outputs.download-path}}
