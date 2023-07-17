@@ -6,7 +6,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Self test # Is this needed?
         id: selftest # Is this needed?
-      - uses: ryan-rozario/pipreqs-action-cpy@master
+        uses: ryan-rozario/pipreqs-action-cpy@master
         with:
           PROJECT_PATH: .   # the root of the repository
           REQUIREMENT_PATH: ./requirements.txt  # create the requirement.txt in the root of the repository 
@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Self test # Is this needed?
         id: selftest # Is this needed?
-      - uses: ryan-rozario/pipreqs-action-cpy@master
+        uses: ryan-rozario/pipreqs-action-cpy@master
         with:
           PROJECT_PATH: .   # the root of the repository
           REQUIREMENT_PATH: ./requirements.txt  # create the requirement.txt in the root of the repository 
@@ -40,7 +40,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Self test # Is this needed?
         id: selftest # Is this needed?
-      - uses: ryan-rozario/pipreqs-action-cpy@master
+        uses: ryan-rozario/pipreqs-action-cpy@master
         with:
           PROJECT_PATH: .   # the root of the repository
           REQUIREMENT_PATH: ./requirements.txt  # create the requirement.txt in the root of the repository 
