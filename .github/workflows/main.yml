@@ -3,30 +3,51 @@ jobs:
   pyinstaller-build-windows:
     runs-on: windows-latest
     steps:
-      - name: Create Executable
+      - uses: actions/checkout@master
+      - name: Self test # Is this needed?
+        id: selftest # Is this needed?
+      - uses: ryan-rozario/pipreqs-action-cpy@master
+        with:
+          PROJECT_PATH: .   # the root of the repository
+          REQUIREMENT_PATH: ./requirements.txt  # create the requirement.txt in the root of the repository 
+      - name: Create Windows Executable
         uses: sayyid5416/pyinstaller@v1
         with:
-          python_ver: '3.6'
+          python_ver: '3.11.4'
           requirements: 'requirements.txt'
           upload_exe_with_name: 'tadpole-windows'
           options: --onefile, -F, --icon frog.ico, --clean, --noconsole, --version-file versioninfo,
   pyinstaller-build-macos:
     runs-on: macos-latest
     steps:
+      - uses: actions/checkout@master
+      - name: Self test # Is this needed?
+        id: selftest # Is this needed?
+      - uses: ryan-rozario/pipreqs-action-cpy@master
+        with:
+          PROJECT_PATH: .   # the root of the repository
+          REQUIREMENT_PATH: ./requirements.txt  # create the requirement.txt in the root of the repository 
       - name: Create MacOS Executable
         uses: sayyid5416/pyinstaller@v1
         with:
-          python_ver: '3.6'
+          python_ver: '3.11.4'
           requirements: 'requirements.txt'
-          upload_exe_with_name: 'tadpole-windows'
+          upload_exe_with_name: 'tadpole-macos'
           options: --onefile, -F, --icon frog.ico, --clean, --noconsole, --version-file versioninfo,
   pyinstaller-build-linux:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
+      - name: Self test # Is this needed?
+        id: selftest # Is this needed?
+      - uses: ryan-rozario/pipreqs-action-cpy@master
+        with:
+          PROJECT_PATH: .   # the root of the repository
+          REQUIREMENT_PATH: ./requirements.txt  # create the requirement.txt in the root of the repository 
       - name: Create Linux Executable
         uses: sayyid5416/pyinstaller@v1
         with:
-          python_ver: '3.6'
+          python_ver: '3.11.4'
           requirements: 'requirements.txt'
-          upload_exe_with_name: 'tadpole-windows'
+          upload_exe_with_name: 'tadpole-linux'
           options: --onefile, -F, --icon frog.ico, --clean, --noconsole, --version-file versioninfo,
