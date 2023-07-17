@@ -34,11 +34,16 @@ jobs:
           with:
               name: tadpole-macos
               path: output/macos
+        - uses: QQxiaoming/create-dmg-action@v0.0.2
+          with:
+            srcdir: ${{steps.dl-macos.outputs.download-path}}/tadpole-macos/
+            name: tadpole
         - run: tree "/home/runner/work/tadpole-workflow/tadpole-workflow/output/"
         - uses: softprops/action-gh-release@v1
           with:
             draft: true
             files: |
-               ${{steps.dl-ubuntu.outputs.download-path}}/tadpole-ubuntu
-               ${{steps.dl-windows.outputs.download-path}}/tadpole-windows
-               ${{steps.dl-macos.outputs.download-path}}/tadpole-macos
+               ${{steps.dl-ubuntu.outputs.download-path}}/tadpole-ubuntu/tadpole
+               ${{steps.dl-windows.outputs.download-path}}/tadpole-windows/tadpole.exe
+               ${{steps.dl-macos.outputs.download-path}}/tadpole-macos/tadpole.dmg
+               
