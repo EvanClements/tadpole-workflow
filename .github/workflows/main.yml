@@ -26,4 +26,4 @@ jobs:
         with:
           draft: true
           files: |
-            ${{steps.download.outputs.download-path}}/tadpole-${{ matrix.release }}
+            ${{steps.download.outputs.download-path}}
