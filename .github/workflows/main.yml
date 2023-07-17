@@ -11,6 +11,7 @@ jobs:
         uses: sayyid5416/pyinstaller@v1
         with:
           python_ver: '3.11.4'
+          spec: './tadpole.py'
           requirements: 'requirements.txt'
           upload_exe_with_name: 'tadpole-${{ matrix.release }}'
           options: --onefile, -F, --icon frog.ico, --clean, --noconsole, --version-file versioninfo,
