@@ -15,8 +15,8 @@ jobs:
           requirements: 'requirements.txt'
           upload_exe_with_name: 'tadpole-${{ matrix.release }}'
           options: --onefile, -F, --icon frog.ico, --clean, --noconsole, --version-file versioninfo,
-  
   release:
+      needs: build
       runs-on: ubuntu-latest
       steps:
         - uses: actions/download-artifact@v2.1.1
