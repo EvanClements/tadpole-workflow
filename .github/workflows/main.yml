@@ -1,5 +1,5 @@
 on: push
-permissions: write-all
+permissions: write-all # Need to find out what the minimum write permissions that are needed
 jobs:
   build:
     strategy:
@@ -38,6 +38,6 @@ jobs:
           with:
             draft: true
             files: |
-               ${{steps.dl-ubuntu.outputs.download-path}}
-               ${{steps.dl-windows.outputs.download-path}}
-               ${{steps.dl-macos.outputs.download-path}}
+               ${{steps.dl-ubuntu.outputs.download-path}}/tadpole-ubuntu
+               ${{steps.dl-windows.outputs.download-path}}/tadpole-windows
+               ${{steps.dl-macos.outputs.download-path}}/tadpole-macos
