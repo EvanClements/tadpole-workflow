@@ -1,7 +1,7 @@
 on: push
 jobs:
-  pyinstaller-build-windows:
-    runs-on: windows-latest
+  create-requirementstxt:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - name: Self test # Is this needed?
@@ -10,6 +10,9 @@ jobs:
         with:
           PROJECT_PATH: .   # the root of the repository
           REQUIREMENT_PATH: ./requirements.txt  # create the requirement.txt in the root of the repository 
+  pyinstaller-build-windows:
+    runs-on: windows-latest
+    steps:
       - name: Create Windows Executable
         uses: sayyid5416/pyinstaller@v1
         with:
@@ -20,13 +23,6 @@ jobs:
   pyinstaller-build-macos:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Self test # Is this needed?
-        id: selftest # Is this needed?
-        uses: ryan-rozario/pipreqs-action-cpy@master
-        with:
-          PROJECT_PATH: .   # the root of the repository
-          REQUIREMENT_PATH: ./requirements.txt  # create the requirement.txt in the root of the repository 
       - name: Create MacOS Executable
         uses: sayyid5416/pyinstaller@v1
         with:
@@ -37,13 +33,6 @@ jobs:
   pyinstaller-build-linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Self test # Is this needed?
-        id: selftest # Is this needed?
-        uses: ryan-rozario/pipreqs-action-cpy@master
-        with:
-          PROJECT_PATH: .   # the root of the repository
-          REQUIREMENT_PATH: ./requirements.txt  # create the requirement.txt in the root of the repository 
       - name: Create Linux Executable
         uses: sayyid5416/pyinstaller@v1
         with:
