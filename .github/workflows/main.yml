@@ -34,7 +34,7 @@ jobs:
           # Artifact name
           name: tadpole-dmg # optional, default is artifact
           # A file, directory or wildcard pattern that describes what to upload
-          path: ${{steps.build-macos.outputs.download-path}}/tadpole.dmg
+          path: /Users/runner/work/tadpole-workflow/tadpole-workflow/tadpole.dmg
   release:
       needs: [build, pack-macos]
       runs-on: ubuntu-latest
