@@ -42,12 +42,12 @@ jobs:
           with:
               name: tadpole-windows
               path: output/windows
-#         - run: tree "/home/runner/work/tadpole-workflow/tadpole-workflow/output/"
+        - run: tree "/home/runner/work/tadpole-workflow/tadpole-workflow/output/"
         - uses: softprops/action-gh-release@v1
           with:
             draft: true
             files: |
                ${{steps.dl-ubuntu.outputs.download-path}}/tadpole-ubuntu/tadpole
                ${{steps.dl-windows.outputs.download-path}}/tadpole-windows/tadpole.exe
-               ${{steps.dl-macos.outputs.download-path}}/tadpole-macos/tadpole.dmg
+               /home/runner/work/tadpole-workflow/tadpole-workflow/output/tadpole-macos/tadpole.dmg
                
