@@ -8,7 +8,7 @@ import string
 #Feature imports
 import frogtool
 import tadpole_functions
-
+import psutil
 
 def RunFrogTool():
     drive = window.combobox_drive.currentText()
@@ -30,7 +30,11 @@ def RunFrogTool():
     
 def reloadDriveList():
     currentDrive =  window.combobox_drive.currentText()
-    available_drives = ['%s:' % d for d in string.ascii_uppercase if os.path.exists('%s:' % d)]
+    available_drives =[]
+    for p in partitions:
+        available_drives.append(p.mountpoint)
+        # available_drives = ['%s:' % d for d in string.ascii_uppercase if os.path.exists('%s:' % d)]
+    
     window.combobox_drive.clear()
     for drive in available_drives:
         window.combobox_drive.addItem(QIcon(),drive,drive)
