@@ -31,6 +31,7 @@ def RunFrogTool():
 def reloadDriveList():
     currentDrive =  window.combobox_drive.currentText()
     available_drives =[]
+    partitions = psutil.disk_partitions()
     for p in partitions:
         available_drives.append(p.mountpoint)
         # available_drives = ['%s:' % d for d in string.ascii_uppercase if os.path.exists('%s:' % d)]
