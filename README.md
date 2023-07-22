@@ -13,7 +13,7 @@ This is just an attempt to apply GitHub actions and minor code changes to allow 
 Hopefully these changes will eventually be merged into the main repo.
 
 Current Status
-===============
+---------------
 
 Builds are completing successfully
 Linux GUI loads correctly and populates the drives correctly
