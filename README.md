@@ -15,7 +15,7 @@ Hopefully these changes will eventually be merged into the main repo.
 Current Status
 ---------------
 
-Builds are completing successfully
-Linux GUI loads correctly and populates the drives correctly
-Mac did not load in my test
-Windows has not been tested 
+- Builds are completing successfully
+- Linux GUI loads correctly and populates the drives correctly
+- Mac did not load in my test
+- Windows has not been tested 
